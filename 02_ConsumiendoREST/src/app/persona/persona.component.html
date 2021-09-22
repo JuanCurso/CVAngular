@@ -1,0 +1,50 @@
+<h1>Gestión de personas.</h1>
+
+<div class="container">
+	<div class="row">
+		<div class="col-8">
+			<table class="table">
+			  <thead>
+			    <tr>
+			      <th scope="col">Id</th>
+			      <th scope="col">Nombre</th>
+			      <th scope="col">Apellido</th>
+			      <th scope="col">Edad</th>
+			      <th scope="col">Profesional</th>
+			      <th scope="col">*</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			    <tr *ngFor="let item of personas">
+			      <th scope="row">{{item._id}}</th>
+			      <td>{{item.Nombre}}</td>
+			      <td>{{item.Apellido}}</td>
+			      <td>{{item.Edad}}</td>
+			      <td>{{item.isProfesional}}</td>
+			      <td>
+			      	<button (click)="eliminar(item._id)" class="btn btn-primary">Eliminar
+			      	</button>
+			      </td>
+			    </tr>
+			  </tbody>
+			</table>
+		</div>
+		<div class="col-4">
+	    	<form (ngSubmit)="anadir()">
+				<div class="form-group">
+		          <label for="Nombre">Nombre</label>
+		          <input type="text" name="Nombre" [(ngModel)]="miPersona.Nombre" class="form-control" placeholder="Ingresa nombre">
+		        </div>
+		        <div class="form-group">
+		          <label for="Apellido">Apellido</label>
+		          <input type="text" name="Apellido" [(ngModel)]="miPersona.Apellido" class="form-control" placeholder="Ingresa apellido">
+		        </div>
+		        <div class="form-group">
+		          <label for="Edad">Edad</label>
+		          <input type="text" name="Edad" [(ngModel)]="miPersona.Edad" class="form-control" placeholder="Ingresa edad">
+		        </div>
+		        <button type="submit" class="btn btn-primary">Guardar</button>
+		    </form>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,83 @@
+<h1>Uso de Pipe</h1>
+<div class="row">
+  <div class="col-6">
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Pipe</th>
+          <th scope="col">Valor Original</th>
+          <th scope="col">Valor modificado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>UpperCasePipe</td>
+          <td>{{texto1}}</td>
+          <td>{{texto1 | uppercase}}</td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>LowerCasePipe</td>
+          <td>{{texto2}}</td>
+          <td>{{texto2 | lowercase}}</td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td>TitleCasePipe</td>
+          <td>{{texto1}}</td>
+          <td>{{texto1 | titlecase}}</td>
+        </tr>
+        <tr>
+          <th scope="row">4</th>
+          <td>SlicePipe</td>
+          <td>{{texto1}}</td>
+          <td>{{texto1 | slice:2:10}}</td>
+        </tr>
+        <tr>
+          <th scope="row">5</th>
+          <td>DecimalPipe</td>
+          <td>{{numero1}}</td>
+          <td>{{numero1 | number:'9.2-3'}}</td>
+        </tr>
+        <tr>
+          <th scope="row">6</th>
+          <td>DecimalPipe</td>
+          <td>{{numero2}}</td>
+          <td>{{numero2 | number:'9.4-6'}}</td>
+        </tr>
+        <tr>
+          <th scope="row">7</th>
+          <td>PercentPipe</td>
+          <td>{{numero3}}</td>
+          <td>{{numero3 | percent:'2.2-3'}}</td>
+        </tr>
+        <tr>
+          <th scope="row">8</th>
+          <td>CurrencyPipe</td>
+          <td>{{numero2}}</td>
+          <td>{{numero2 | currency:'EUR':true:'6.2-2'}}</td>
+        </tr>
+        <tr>
+          <th scope="row">9</th>
+          <td>DatePipe</td>
+          <td>{{fecha}}</td>
+          <td>{{fecha | date:'longDate'}}</td>
+        </tr>
+        <tr>
+          <th scope="row">10</th>
+          <td>JsonPipe</td>
+          <td>{{persona}}</td>
+          <td>{{persona | json}}</td>
+        </tr>
+        <tr>
+          <th scope="row">11</th>
+          <td>Pipe personalizado</td>
+          <td>persona.nombre: {{persona.nombre}}<br>persona.apellido: {{persona.apellido}}</td>
+          <td>{{persona.nombre | formatoNombre:persona.apellido}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

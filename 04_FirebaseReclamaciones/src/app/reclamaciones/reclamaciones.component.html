@@ -1,0 +1,65 @@
+<div class="container">
+	<div class="row">
+		<div class="col-8">
+			<h1>Listado de reclamaciones.</h1>
+			<table class="table table-sm">
+			  <thead class="thead-dark">
+			    <tr>
+			      <th scope="col">#</th>
+			      <th scope="col">Título</th>
+			      <th scope="col">Texto</th>
+			      <th scope="col">Locación</th>
+			      <th scope="col">Acción</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			    <tr *ngFor="let item of reclamacionLista;index as i">
+			      <th scope="row">{{i+1}}</th>
+			      <td>{{item.titulo}}</td>
+			      <td>{{item.texto}}</td>
+			      <td>{{item.localizacion}}</td>
+			      <td>
+			      	<a class="btn" (click)="editar(item)">
+			      		<i class="fa fa-pencil-square-o" style="margin-right: 3px;"></i>Editar
+			      	</a>
+			      	<a class="btn" (click)="eliminar(item.$key)">
+			      		<i class="fa fa-trash-o" style="margin-right: 3px;"></i>Eliminar
+			      	</a>
+			      </td>
+			    </tr>
+			  </tbody>
+			</table>
+		</div>
+		<div class="col-4">
+			<h1>Formulario.</h1>
+				<form #reclamacionForm="ngForm" (ngSubmit)="onSubmit(reclamacionForm)">
+					<input type="hidden" name="$key" #$key="ngModel"
+						[(ngModel)]="reclamacionesService.selectedReclamacion.$key">
+				  <div class="form-group">
+				    <label for="titulo">Titulo</label>
+				    <input type="titulo" class="form-control" name="titulo" #titulo="ngModel"
+				    	[(ngModel)]="reclamacionesService.selectedReclamacion.titulo"
+				    	placeholder="Introduce el titulo" required="">
+				  </div>
+				  <div class="form-group">
+				    <label for="texto">Texto</label>
+				    <input type="titulo" class="form-control" name="texto" #texto="ngModel"
+				    	[(ngModel)]="reclamacionesService.selectedReclamacion.texto"
+				    	placeholder="Introduce el texto">
+				  </div>
+				  <div class="form-group">
+				    <label for="localizacion">Localización</label>
+				    <input type="localizacion" class="form-control" name="localizacion" #localizacion="ngModel"
+				    	[(ngModel)]="reclamacionesService.selectedReclamacion.localizacion"
+				    	placeholder="Introduce la locacion">
+				  </div>
+				  <div class="form-group">
+				    <button type="submit" class="btn btn-dark" [disabled]="!reclamacionForm.valid">
+				    	<i class="fa fa-floppy-o" style="margin-right: 3px;"></i>Guardar</button>
+				    <button type="button" class="btn btn-dark" (click)="resetForm(reclamacionForm)">
+				    	<i class="fa fa-repeat" style="margin-right: 3px;"></i>Limpiar</button>
+				  </div>
+				</form>			
+		</div>
+	</div>
+</div>

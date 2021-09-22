@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <div class="cols-12">
+      <form [formGroup]="formulario" (submit)="validarFormulario(formulario)">
+        <div class="form-group">
+          <label for="exampleInputPassword1">Nombre</label>
+          <input type="text" formControlName="nombre" class="form-control" id="exampleInputPassword1" placeholder="Ingresa nombre">
+        </div>
+        <div class="errorcodigo" *ngIf="formulario.controls.nombre.errors">
+          Existe un error en el campo
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Apellido</label>
+          <input type="text" formControlName="apellido" class="form-control" id="exampleInputPassword1" placeholder="Ingresa apellido">
+        </div>
+        <div class="errorcodigo" *ngIf="formulario.controls.apellido.errors">
+          Existe un error en el campo
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Dirección de Email</label>
+          <input type="email" formControlName="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+        <div class="errorcodigo" *ngIf="formulario.controls.email.errors">
+          Existe un error en el campo
+        </div>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+      </form>
+    </div>
+  </div>
+</div>
